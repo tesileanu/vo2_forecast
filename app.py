@@ -27,7 +27,7 @@ app.layout = html.Div(
                 {'label':'Male', 'value':'m' },
                 {'label': 'Female', 'value':'f'},
             ],
-            placeholder='Select Gender...',
+            value='f',
             style={
                 'width': '50%'
             }
@@ -36,14 +36,14 @@ app.layout = html.Div(
             id="input_age",
             type="number",
             placeholder="Age",
-            value=20
+            value=25
         ),
         html.Br(),
         'VO2max ', dcc.Input(
             id="input_vo2",
             type="number",
             placeholder="VO2max",
-            value=48
+            value=40
         ),
         html.Br(),
         html.Br(),
