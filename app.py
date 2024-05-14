@@ -77,14 +77,14 @@ def graph_update(dropdown_value, input_age, input_vo2, list_of_activities):
     vo2_max = input_vo2
     gender = dropdown_value
     df = pd.DataFrame(columns = ['years','vo2_max','gender','aM','bM','SumM','aF','bF','SumF','percentile'])
-    df['years'] = range(age, 105, 10)
+    df['years'] = range(age, 105, 1)
     df['gender'] = gender
     df.loc[0, 'vo2_max'] = vo2_max
     for index, row in df.iterrows():
         if index==0:
             continue
         else:
-            df.loc[index, 'vo2_max'] = df.loc[index-1,'vo2_max']*0.9
+            df.loc[index, 'vo2_max'] = df.loc[index-1,'vo2_max']*0.9897
 
     df['aM'] = - 9.27 - 0.0722*df['years'] + 0.001209*df['years']**2
     df['bM'] = 0.209 + 0.0012*df['years'] - 0.000006*df['years']**2
