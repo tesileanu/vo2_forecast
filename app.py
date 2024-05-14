@@ -121,9 +121,9 @@ def graph_update(dropdown_value, input_age, input_vo2, list_of_activities):
                 annotation_font_size=10,
                 annotation_font_color="black"
                 )
-        #fig.add_annotation(text="You will have difficulty hiking starting at " +  + "years old",
-        #          xref="paper", yref="paper",
-        #          x=0.3, y=0.3, showarrow=False)
+        fig.add_annotation(text="You will have difficulty hiking starting at " + str(df.iloc[(df['vo2_max']-25.5).abs().argsort()[:2]].values.flatten()[0]) + " years old",
+                  xref="paper", yref="paper",
+                  x=0, y=-0.22, showarrow=False)
     if 'run' in list_of_activities:
         fig.add_hline(y=34.3, line_dash="dot",
                 annotation_text="Running", 
@@ -131,6 +131,9 @@ def graph_update(dropdown_value, input_age, input_vo2, list_of_activities):
                 annotation_font_size=10,
                 annotation_font_color="black"
                 )
+        fig.add_annotation(text="You will have difficulty running starting at " + str(df.iloc[(df['vo2_max']-34.3).abs().argsort()[:2]].values.flatten()[0]) + " years old",
+                  xref="paper", yref="paper",
+                  x=0, y=-0.15, showarrow=False)
     if 'walk' in list_of_activities:
         fig.add_hline(y=15, line_dash="dot",
                 annotation_text="Slow Walk", 
@@ -138,6 +141,9 @@ def graph_update(dropdown_value, input_age, input_vo2, list_of_activities):
                 annotation_font_size=10,
                 annotation_font_color="black"
                 )
+        fig.add_annotation(text="You will have difficulty walking starting at " + str(df.iloc[(df['vo2_max']-15).abs().argsort()[:2]].values.flatten()[0]) + " years old",
+                  xref="paper", yref="paper",
+                  x=0, y=-0.29, showarrow=False)
     
     
     fig.update_xaxes(
